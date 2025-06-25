@@ -238,7 +238,10 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_name': '快速存取資料夾',
         'quick_access_folder_desc': '「打開快速存取資料夾」命令所使用的資料夾。',
         'root_folder': '根資料夾',
-        'open_quick_access_folder': '開啟快速存取資料夾',    },
+        'open_quick_access_folder': '開啟快速存取資料夾',
+        'use_quick_access_folder_as_new_tab_view': '將快速存取資料夾作為新分頁畫面',
+        'use_quick_access_folder_as_new_tab_view_desc': '將預設的「新分頁」畫面，以 上方指定的資料夾的網格檢視 取代之。',
+    },
     'en': {
         // Notifications
         'bookmarks_plugin_disabled': 'Please enable the Bookmarks plugin first',
@@ -456,6 +459,8 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_desc': 'Folder used by "Open quick access folder" command',
         'root_folder': 'Root Folder',
         'open_quick_access_folder': 'Open quick access folder',
+        'use_quick_access_folder_as_new_tab_view': 'Use quick access folder as a new tab view',
+        'use_quick_access_folder_as_new_tab_view_desc': 'Replaces the default "New Tab" view with a Grid View of the folder specified above. Only works if default open location is set to "Open in new tab"!',
     },
     'zh': {
         // 通知信息
@@ -674,7 +679,11 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_name': '快速访问文件夹',
         'quick_access_folder_desc': '“打开快速访问文件夹”命令使用的文件夹。',
         'root_folder': '根文件夹',
-        'open_quick_access_folder': '打开快速访问文件夹',    },
+        'open_quick_access_folder': '打开快速访问文件夹',
+        'use_quick_access_folder_as_new_tab_view': '将快速访问文件夹用作新标签页视图',
+        'use_quick_access_folder_as_new_tab_view_desc': '将默认的“新标签页”视图替换为上方指定的文件夹的网格视图。此设置仅在“默认打开位置”设为“在新标签页打开”时生效！',
+
+    },
     'ja': {
         // 通知メッジ
         'bookmarks_plugin_disabled': 'ブックマークプラグインを有効にしてください',
@@ -892,7 +901,10 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_name': 'クイックアクセスフォルダー',
         'quick_access_folder_desc': '「クイックアクセス フォルダーを開く」コマンドが使用するフォルダーです。',
         'root_folder': 'ルートフォルダー',
-        'open_quick_access_folder': 'クイックアクセス フォルダーを開く',    },
+        'open_quick_access_folder': 'クイックアクセス フォルダーを開く',
+        'use_quick_access_folder_as_new_tab_view': 'クイックアクセスフォルダーを新しいタブの表示として使用する',
+        'use_quick_access_folder_as_new_tab_view_desc': '既定の「新しいタブ」の表示を、上記で指定したフォルダーのグリッド表示に置き換えます。この設定は、「デフォルトの開く場所」が「新しいタブで開く」に設定されている場合にのみ有効です！',
+    },
     'ru': {
         // Notifications
         'bookmarks_plugin_disabled': 'Пожалуйста, сначала включите плагин Закладки',
@@ -1110,6 +1122,8 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_desc': 'Папка, используемая командой "Открыть папку быстрого доступа"',
         'root_folder': 'Корневая папка',
         'open_quick_access_folder': 'Открыть папку быстрого доступа',
+        'use_quick_access_folder_as_new_tab_view': 'Использовать папку быстрого доступа как страницу новой вкладки',
+        'use_quick_access_folder_as_new_tab_view_desc': 'Заменяет стандартный вид «Новая вкладка» на сеточный вид папки, указанной выше. Работает, только если «Место открытия по умолчанию» установлено как «Открыть в новой вкладке»!',
     },
     'uk': {
         // Notifications
@@ -1328,5 +1342,7 @@ export const TRANSLATIONS: Translations = {
         'quick_access_folder_desc': 'Папка, що використовується командою "Відкрити папку швидкого доступу"',
         'root_folder': 'Коренева папка',
         'open_quick_access_folder': 'Відкрити папку швидкого доступу',
+        'use_quick_access_folder_as_new_tab_view': 'Використовувати папку швидкого доступу як сторінку нової вкладки',
+        'use_quick_access_folder_as_new_tab_view_desc': 'Замінює стандартний вид «Нова вкладка» на сітковий вид папки, вказаної вище. Працює, лише якщо «Місце відкриття за замовчуванням» встановлено як «Відкрити в новій вкладці»!',
     }
 }

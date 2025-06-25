@@ -40,6 +40,7 @@ export interface GallerySettings {
     folderNoteDisplaySettings: string; // 資料夾筆記設定
     interceptAllTagClicks: boolean; // 攔截所有tag點擊事件
     quickAccessCommandPath: string; // Path used by "Open quick access folder" command
+    useQuickAccessFolderAsNewTabView: boolean; // Use quick access folder as new tab view
 }
 
 // 預設設定
@@ -81,6 +82,7 @@ export const DEFAULT_SETTINGS: GallerySettings = {
     folderNoteDisplaySettings: 'default', // 預設不處理資料夾筆記
     interceptAllTagClicks: false, // 預設不攔截所有tag點擊事件
     quickAccessCommandPath: '', // Path used by "Open quick access folder" command
+    useQuickAccessFolderAsNewTabView: false,
 };
 
 // 設定頁面類別
@@ -612,6 +614,20 @@ export class GridExplorerSettingTab extends PluginSettingTab {
                     await this.plugin.saveSettings();
                 });
             });
+
+            // Use Quick Access Folder as a new tab view
+            new Setting(containerEl)
+            .setName(t('use_quick_access_folder_as_new_tab_view'))
+            .setDesc(t('use_quick_access_folder_as_new_tab_view_desc'))
+            .addToggle(toggle => {
+                toggle
+                    .setValue(this.plugin.settings.useQuickAccessFolderAsNewTabView)
+                    .onChange(async (value) => {
+                        this.plugin.settings.useQuickAccessFolderAsNewTabView = value;
+                        await this.plugin.saveSettings();
+                    });
+            });
+
         // 忽略資料夾設定區域
         containerEl.createEl('h3', { text: t('ignored_folders_settings') });
 
