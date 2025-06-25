@@ -233,7 +233,12 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': '將資料夾筆記固定在最上方',
         'display_minimized': '最小化顯示',
         'display_minimized_desc': '將此筆記以最小化方式顯示',
-    },
+        //TODO: please check the translation!
+        'quick_access_settings_title': '快速存取設定',
+        'quick_access_folder_name': '快速存取資料夾',
+        'quick_access_folder_desc': '「打開快速存取資料夾」命令所使用的資料夾。',
+        'root_folder': '根資料夾',
+        'open_quick_access_folder': '開啟快速存取資料夾',    },
     'en': {
         // Notifications
         'bookmarks_plugin_disabled': 'Please enable the Bookmarks plugin first',
@@ -446,6 +451,11 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Pin this folder note at the top',
         'display_minimized': 'Display minimized',
         'display_minimized_desc': 'Show this note in minimized mode',
+        'quick_access_settings_title': 'Quick Access Settings',
+        'quick_access_folder_name': 'Quick access folder',
+        'quick_access_folder_desc': 'Folder used by "Open quick access folder" command',
+        'root_folder': 'Root Folder',
+        'open_quick_access_folder': 'Open quick access folder',
     },
     'zh': {
         // 通知信息
@@ -659,7 +669,12 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': '将文件夹笔记固定在顶部',
         'display_minimized': '最小化显示',
         'display_minimized_desc': '将此笔记以最小化方式显示',
-    },
+        //TODO: please check the translation!
+        'quick_access_settings_title': '快速访问设置',
+        'quick_access_folder_name': '快速访问文件夹',
+        'quick_access_folder_desc': '“打开快速访问文件夹”命令使用的文件夹。',
+        'root_folder': '根文件夹',
+        'open_quick_access_folder': '打开快速访问文件夹',    },
     'ja': {
         // 通知メッジ
         'bookmarks_plugin_disabled': 'ブックマークプラグインを有効にしてください',
@@ -872,7 +887,12 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'フォルダーノートを最上部に固定',
         'display_minimized': '最小化表示',
         'display_minimized_desc': 'このノートを最小化モードで表示',
-    },
+        //TODO: please check the translation!
+        'quick_access_settings_title': 'クイックアクセス設定',
+        'quick_access_folder_name': 'クイックアクセスフォルダー',
+        'quick_access_folder_desc': '「クイックアクセス フォルダーを開く」コマンドが使用するフォルダーです。',
+        'root_folder': 'ルートフォルダー',
+        'open_quick_access_folder': 'クイックアクセス フォルダーを開く',    },
     'ru': {
         // Notifications
         'bookmarks_plugin_disabled': 'Пожалуйста, сначала включите плагин Закладки',
@@ -1085,6 +1105,11 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Закрепить заметки папки вверху',
         'display_minimized': 'Минимальный вид',
         'display_minimized_desc': 'Показывать эту заметку в минимальном режиме',
+        'quick_access_settings_title': 'Настройки быстрого доступа',
+        'quick_access_folder_name': 'Папка быстрого доступа',
+        'quick_access_folder_desc': 'Папка, используемая командой "Открыть папку быстрого доступа"',
+        'root_folder': 'Корневая папка',
+        'open_quick_access_folder': 'Открыть папку быстрого доступа',
     },
     'uk': {
         // Notifications
@@ -1298,5 +1323,10 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Закріпити нотатки папки угорі',
         'display_minimized': 'Мінімізований вигляд',
         'display_minimized_desc': 'Показувати цю нотатку у мінімізованому режимі',
+        'quick_access_settings_title': 'Налаштування швидкого доступу',
+        'quick_access_folder_name': 'Папка швидкого доступу',
+        'quick_access_folder_desc': 'Папка, що використовується командою "Відкрити папку швидкого доступу"',
+        'root_folder': 'Коренева папка',
+        'open_quick_access_folder': 'Відкрити папку швидкого доступу',
     }
 }

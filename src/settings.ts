@@ -39,6 +39,7 @@ export interface GallerySettings {
     showCodeBlocksInSummary: boolean; // 是否在摘要中顯示程式碼區塊
     folderNoteDisplaySettings: string; // 資料夾筆記設定
     interceptAllTagClicks: boolean; // 攔截所有tag點擊事件
+    quickAccessCommandPath: string; // Path used by "Open quick access folder" command
 }
 
 // 預設設定
@@ -79,6 +80,7 @@ export const DEFAULT_SETTINGS: GallerySettings = {
     showCodeBlocksInSummary: false, // 預設不在摘要中顯示程式碼區塊
     folderNoteDisplaySettings: 'default', // 預設不處理資料夾筆記
     interceptAllTagClicks: false, // 預設不攔截所有tag點擊事件
+    quickAccessCommandPath: '', // Path used by "Open quick access folder" command
 };
 
 // 設定頁面類別
@@ -586,6 +588,30 @@ export class GridExplorerSettingTab extends PluginSettingTab {
                     });
             });
 
+            // Quick Access Settings
+            containerEl.createEl('h3', { text: t('quick_access_settings_title') });
+
+            // Quick Access Folder Setting
+            new Setting(containerEl)
+            .setName(t('quick_access_folder_name'))
+            .setDesc(t('quick_access_folder_desc'))
+            .addDropdown(dropdown => {
+                const folders = this.app.vault.getAllFolders()
+                    .filter(folder => folder.path !== '/')
+                    .sort((a, b) => a.path.localeCompare(b.path));
+
+                dropdown.addOption('/', t('root_folder'));
+
+                folders.forEach(folder => {
+                    dropdown.addOption(folder.path, folder.path);
+                });
+
+                dropdown.setValue(this.plugin.settings.quickAccessCommandPath || '/'); // Default to root if empty
+                dropdown.onChange(async (value) => {
+                    this.plugin.settings.quickAccessCommandPath = value;
+                    await this.plugin.saveSettings();
+                });
+            });
         // 忽略資料夾設定區域
         containerEl.createEl('h3', { text: t('ignored_folders_settings') });
 

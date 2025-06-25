@@ -92,6 +92,26 @@ export default class GridExplorerPlugin extends Plugin {
             }
         });
 
+        // Open quick access folder command
+        this.addCommand({
+            id: 'open-quick-access-folder',
+            name: t('open_quick_access_folder'),
+            callback: async () => {
+                let targetPath = this.settings.quickAccessCommandPath;
+                if (!targetPath) {
+                    targetPath = this.app.vault.getRoot().path;
+                }
+
+                const targetFile = this.app.vault.getAbstractFileByPath(targetPath);
+
+                if (targetFile instanceof TFolder) {
+                    this.openNoteInFolder(targetFile);
+                } else {
+                    this.openNoteInFolder(this.app.vault.getRoot());
+                }
+            }
+        });
+
         // 新增 Ribbon 圖示
         this.addRibbonIcon('grid', t('open_grid_view'), () => {
             showFolderSelectionModal(this.app, this);
