@@ -531,10 +531,10 @@ export default class GridExplorerPlugin extends Plugin {
         return leaf.view;
     }
 
-    // Checks for new empty tabs and overrides them with the Grid View of quick access folder (for useQuickAccessFolderAsNewTab setting)
+    // Checks for new empty tabs and overrides them with the Grid View based on quick access settings
     checkForNewTab(existingLeaves: WeakSet<WorkspaceLeaf>) {
-        // Only proceed if the new tab override setting is enabled.
-        if (!this.settings.useQuickAccessFolderAsNewTabView) {
+        // Only proceed if the new tab override setting is not set to default
+        if (this.settings.useQuickAccessAsNewTabView === 'default') {
             return;
         }
 
@@ -552,19 +552,23 @@ export default class GridExplorerPlugin extends Plugin {
 
             // If reuseExistingLeaf setting is true, close the newly created empty leaf before opening the Grid View.
             if (this.settings.reuseExistingLeaf) {
-            leaf.detach();
+                leaf.detach();
             }
-
-            // If the leaf is empty, open the quick access folder in Grid View.
-            let targetPath = this.settings.quickAccessCommandPath;
-            if (!targetPath) {
-                targetPath = this.app.vault.getRoot().path;
-            }
-            const targetFile = this.app.vault.getAbstractFileByPath(targetPath);
-            if (targetFile instanceof TFolder) {
-                this.openNoteInFolder(targetFile);
-            } else {
-                this.openNoteInFolder(this.app.vault.getRoot());
+            
+            if (this.settings.useQuickAccessAsNewTabView === 'folder') {
+                // If the leaf is empty, open the quick access folder in Grid View.
+                let targetPath = this.settings.quickAccessCommandPath;
+                if (!targetPath) {
+                    targetPath = this.app.vault.getRoot().path;
+                }
+                const targetFile = this.app.vault.getAbstractFileByPath(targetPath);
+                if (targetFile instanceof TFolder) {
+                    this.openNoteInFolder(targetFile);
+                } else {
+                    this.openNoteInFolder(this.app.vault.getRoot());
+                }
+            } else if (this.settings.useQuickAccessAsNewTabView === 'view') {
+                this.activateView(this.settings.quickAccessViewType);
             }
         });
     }
