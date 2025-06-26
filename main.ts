@@ -551,8 +551,8 @@ export default class GridExplorerPlugin extends Plugin {
             if (!this.tabIsEmpty(leaf)) return;
 
             // If reuseExistingLeaf setting is true, close the newly created empty leaf before opening the Grid View.
-            if (this.settings.reuseExistingLeaf && this.settings.defaultOpenLocation === 'tab') {
-                leaf.detach();
+            if (this.settings.reuseExistingLeaf) {
+            leaf.detach();
             }
 
             // If the leaf is empty, open the quick access folder in Grid View.
