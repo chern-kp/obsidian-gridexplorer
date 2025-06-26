@@ -331,7 +331,7 @@ export default class GridExplorerPlugin extends Plugin {
 
         this.setupCanvasDropHandlers();
 
-        // Override new tab behavior (for useQuickAccessFolderAsNewTab setting)
+        // Override new tab behavior (for useQuickAccessAsNewTabView setting)
         const { workspace } = this.app;
 
         workspace.onLayoutReady(() => {
@@ -531,45 +531,62 @@ export default class GridExplorerPlugin extends Plugin {
         return leaf.view;
     }
 
-    // Checks for new empty tabs and overrides them with the Grid View based on quick access settings
+    // Function to check for new tabs and convert them to grid-view (for useQuickAccessAsNewTabView setting)
     checkForNewTab(existingLeaves: WeakSet<WorkspaceLeaf>) {
         // Only proceed if the new tab override setting is not set to default
         if (this.settings.useQuickAccessAsNewTabView === 'default') {
             return;
         }
 
-        // Only proceed if defaultOpenLocation is 'tab'
+        // Only proceed if the default open location is set to 'tab'
         if (this.settings.defaultOpenLocation !== 'tab') {
             return;
         }
 
         this.app.workspace.iterateAllLeaves((leaf) => {
             if (existingLeaves.has(leaf)) return;
-
             existingLeaves.add(leaf);
-
             if (!this.tabIsEmpty(leaf)) return;
 
-            // If reuseExistingLeaf setting is true, close the newly created empty leaf before opening the Grid View.
-            if (this.settings.reuseExistingLeaf) {
-                leaf.detach();
-            }
-            
-            if (this.settings.useQuickAccessAsNewTabView === 'folder') {
-                // If the leaf is empty, open the quick access folder in Grid View.
-                let targetPath = this.settings.quickAccessCommandPath;
-                if (!targetPath) {
-                    targetPath = this.app.vault.getRoot().path;
+            const gridViewLeaves = this.app.workspace.getLeavesOfType('grid-view');
+            const openInFolder = this.settings.useQuickAccessAsNewTabView === 'folder';
+            const mode = openInFolder ? 'folder' : this.settings.quickAccessViewType;
+            let path = '';
+
+            if (openInFolder) {
+                path = this.settings.quickAccessCommandPath || this.app.vault.getRoot().path;
+                const targetFile = this.app.vault.getAbstractFileByPath(path);
+                if (!(targetFile instanceof TFolder)) {
+                    path = this.app.vault.getRoot().path;
                 }
-                const targetFile = this.app.vault.getAbstractFileByPath(targetPath);
-                if (targetFile instanceof TFolder) {
-                    this.openNoteInFolder(targetFile);
-                } else {
-                    this.openNoteInFolder(this.app.vault.getRoot());
-                }
-            } else if (this.settings.useQuickAccessAsNewTabView === 'view') {
-                this.activateView(this.settings.quickAccessViewType);
             }
+
+            // Check if setting "reuseExistingLeaf" is enabled and if there are existing grid-view leaves
+            if (this.settings.reuseExistingLeaf && gridViewLeaves.length > 0) {
+                const leafToReuse = gridViewLeaves[0];
+                const isSidebarLeaf = leafToReuse.getRoot() !== this.app.workspace.rootSplit;
+
+                // If the only view is in the sidebar, ignore to prevent infinite loop
+                if (!isSidebarLeaf) {
+                    if (leafToReuse.view instanceof GridView) {
+                        leafToReuse.view.setSource(mode, path);
+                    }
+
+                    this.app.workspace.revealLeaf(leafToReuse);
+
+                    // Close the new empty tab
+                    leaf.detach();
+
+                    return;
+                }
+            }
+
+            // Convert the new empty tab into a grid-view if all conditions are met
+            leaf.setViewState({ type: 'grid-view', active: true }).then(() => {
+                if (leaf.view instanceof GridView) {
+                    leaf.view.setSource(mode, path);
+                }
+            });
         });
     }
 
