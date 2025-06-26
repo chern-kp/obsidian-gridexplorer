@@ -233,14 +233,23 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': '將資料夾筆記固定在最上方',
         'display_minimized': '最小化顯示',
         'display_minimized_desc': '將此筆記以最小化方式顯示',
+
         //TODO: please check the translation!
+        // Quick Access Settings and Commands
+
         'quick_access_settings_title': '快速存取設定',
         'quick_access_folder_name': '快速存取資料夾',
-        'quick_access_folder_desc': '「打開快速存取資料夾」命令所使用的資料夾。',
+        'quick_access_folder_desc': '設定「開啟快速存取資料夾」命令所使用的資料夾',
         'root_folder': '根資料夾',
+        'quick_access_view_name': '快速存取檢視',
+        'quick_access_view_desc': '設定「開啟快速存取檢視」命令所使用的預設檢視',
+        'use_quick_access_as_new_tab_view': '將快速存取作為新分頁使用',
+        'use_quick_access_as_new_tab_view_desc': '將預設的「新分頁」畫面替換為所選快速存取選項（資料夾或檢視）的網格檢視。此設定僅在「預設開啟位置」設為「在新分頁開啟」時有效！',
+        'default_new_tab': '預設',
+        'use_quick_access_folder': '使用快速存取資料夾',
+        'use_quick_access_view': '使用快速存取檢視',
         'open_quick_access_folder': '開啟快速存取資料夾',
-        'use_quick_access_folder_as_new_tab_view': '將快速存取資料夾作為新分頁畫面',
-        'use_quick_access_folder_as_new_tab_view_desc': '將預設的「新分頁」畫面，以 上方指定的資料夾的網格檢視 取代之。',
+        'open_quick_access_view': '開啟快速存取檢視',
     },
     'en': {
         // Notifications
@@ -454,13 +463,22 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Pin this folder note at the top',
         'display_minimized': 'Display minimized',
         'display_minimized_desc': 'Show this note in minimized mode',
+
+        // Quick Access Settings and Commands
+
         'quick_access_settings_title': 'Quick Access Settings',
         'quick_access_folder_name': 'Quick access folder',
-        'quick_access_folder_desc': 'Folder used by "Open quick access folder" command',
+        'quick_access_folder_desc': 'Set the folder used by the "Open quick access folder" command',
         'root_folder': 'Root Folder',
+        'quick_access_view_name': 'Quick access view',
+        'quick_access_view_desc': 'Set the default view used by the "Open quick access view" command',
+        'use_quick_access_as_new_tab_view': 'Use Quick Access as a new tab view',
+        'use_quick_access_as_new_tab_view_desc': 'Replace the default "New Tab" view with a Grid View of the selected Quick Access option (folder or view). Only works if default open location is set to "Open in new tab"!',
+        'default_new_tab': 'Default New Tab',
+        'use_quick_access_folder': 'Use quick access folder',
+        'use_quick_access_view': 'Use quick access view',
         'open_quick_access_folder': 'Open quick access folder',
-        'use_quick_access_folder_as_new_tab_view': 'Use quick access folder as a new tab view',
-        'use_quick_access_folder_as_new_tab_view_desc': 'Replaces the default "New Tab" view with a Grid View of the folder specified above. Only works if default open location is set to "Open in new tab"!',
+        'open_quick_access_view': 'Open quick access view',
     },
     'zh': {
         // 通知信息
@@ -674,15 +692,23 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': '将文件夹笔记固定在顶部',
         'display_minimized': '最小化显示',
         'display_minimized_desc': '将此笔记以最小化方式显示',
+
         //TODO: please check the translation!
+        // Quick Access Settings and Commands
+
         'quick_access_settings_title': '快速访问设置',
         'quick_access_folder_name': '快速访问文件夹',
-        'quick_access_folder_desc': '“打开快速访问文件夹”命令使用的文件夹。',
+        'quick_access_folder_desc': '设置“打开快速访问文件夹”命令使用的文件夹',
         'root_folder': '根文件夹',
+        'quick_access_view_name': '快速访问视图',
+        'quick_access_view_desc': '设置“打开快速访问视图”命令使用的默认视图',
+        'use_quick_access_as_new_tab_view': '将快速访问用作新标签页',
+        'use_quick_access_as_new_tab_view_desc': '将默认的“新标签页”视图替换为所选快速访问选项（文件夹或视图）的网格视图。此设置仅在“默认打开位置”设为“在新标签页打开”时生效！',
+        'default_new_tab': '默认',
+        'use_quick_access_folder': '使用快速访问文件夹',
+        'use_quick_access_view': '使用快速访问视图',
         'open_quick_access_folder': '打开快速访问文件夹',
-        'use_quick_access_folder_as_new_tab_view': '将快速访问文件夹用作新标签页视图',
-        'use_quick_access_folder_as_new_tab_view_desc': '将默认的“新标签页”视图替换为上方指定的文件夹的网格视图。此设置仅在“默认打开位置”设为“在新标签页打开”时生效！',
-
+        'open_quick_access_view': '打开快速访问视图',
     },
     'ja': {
         // 通知メッジ
@@ -896,14 +922,23 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'フォルダーノートを最上部に固定',
         'display_minimized': '最小化表示',
         'display_minimized_desc': 'このノートを最小化モードで表示',
+
         //TODO: please check the translation!
+        // Quick Access Settings and Commands
+
         'quick_access_settings_title': 'クイックアクセス設定',
         'quick_access_folder_name': 'クイックアクセスフォルダー',
-        'quick_access_folder_desc': '「クイックアクセス フォルダーを開く」コマンドが使用するフォルダーです。',
+        'quick_access_folder_desc': '「クイックアクセス フォルダーを開く」コマンドで使用するフォルダーを設定します',
         'root_folder': 'ルートフォルダー',
+        'quick_access_view_name': 'クイックアクセス表示',
+        'quick_access_view_desc': '「クイックアクセス表示を開く」コマンドで使用する既定の表示を設定します',
+        'use_quick_access_as_new_tab_view': 'クイックアクセスを新しいタブとして使用する',
+        'use_quick_access_as_new_tab_view_desc': '既定の「新しいタブ」の表示を、選択したクイックアクセスオプション（フォルダーまたは表示）のグリッド表示に置き換えます。この設定は、「デフォルトの開く場所」が「新しいタブで開く」に設定されている場合にのみ有効です！',
+        'default_new_tab': '既定',
+        'use_quick_access_folder': 'クイックアクセスフォルダーを使用する',
+        'use_quick_access_view': 'クイックアクセス表示を使用する',
         'open_quick_access_folder': 'クイックアクセス フォルダーを開く',
-        'use_quick_access_folder_as_new_tab_view': 'クイックアクセスフォルダーを新しいタブの表示として使用する',
-        'use_quick_access_folder_as_new_tab_view_desc': '既定の「新しいタブ」の表示を、上記で指定したフォルダーのグリッド表示に置き換えます。この設定は、「デフォルトの開く場所」が「新しいタブで開く」に設定されている場合にのみ有効です！',
+        'open_quick_access_view': 'クイックアクセス表示を開く',
     },
     'ru': {
         // Notifications
@@ -1117,13 +1152,22 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Закрепить заметки папки вверху',
         'display_minimized': 'Минимальный вид',
         'display_minimized_desc': 'Показывать эту заметку в минимальном режиме',
-        'quick_access_settings_title': 'Настройки быстрого доступа',
+
+        // Quick Access Settings and Commands
+
+        'quick_access_settings_title': 'Настройки Быстрого Доступа',
         'quick_access_folder_name': 'Папка быстрого доступа',
-        'quick_access_folder_desc': 'Папка, используемая командой "Открыть папку быстрого доступа"',
+        'quick_access_folder_desc': 'Установите папку, используемую командой «Открыть папку быстрого доступа»',
         'root_folder': 'Корневая папка',
+        'quick_access_view_name': 'Вид быстрого доступа',
+        'quick_access_view_desc': 'Установите вид по умолчанию, используемый командой «Открыть вид быстрого доступа»',
+        'use_quick_access_as_new_tab_view': 'Использовать быстрый доступ как новую вкладку',
+        'use_quick_access_as_new_tab_view_desc': 'Замените стандартный вид «Новая вкладка» на сеточный вид выбранной опции Быстрого доступа (папки или вида). Работает, только если «Место открытия по умолчанию» установлено на «Открыть в новой вкладке»!',
+        'default_new_tab': 'По умолчанию',
+        'use_quick_access_folder': 'Использовать папку быстрого доступа',
+        'use_quick_access_view': 'Использовать вид быстрого доступа',
         'open_quick_access_folder': 'Открыть папку быстрого доступа',
-        'use_quick_access_folder_as_new_tab_view': 'Использовать папку быстрого доступа как страницу новой вкладки',
-        'use_quick_access_folder_as_new_tab_view_desc': 'Заменяет стандартный вид «Новая вкладка» на сеточный вид папки, указанной выше. Работает, только если «Место открытия по умолчанию» установлено как «Открыть в новой вкладке»!',
+        'open_quick_access_view': 'Открыть вид быстрого доступа',
     },
     'uk': {
         // Notifications
@@ -1337,12 +1381,21 @@ export const TRANSLATIONS: Translations = {
         'foldernote_pinned_desc': 'Закріпити нотатки папки угорі',
         'display_minimized': 'Мінімізований вигляд',
         'display_minimized_desc': 'Показувати цю нотатку у мінімізованому режимі',
-        'quick_access_settings_title': 'Налаштування швидкого доступу',
+
+        // Quick Access Settings and Commands
+
+        'quick_access_settings_title': 'Налаштування Швидкого Доступу',
         'quick_access_folder_name': 'Папка швидкого доступу',
-        'quick_access_folder_desc': 'Папка, що використовується командою "Відкрити папку швидкого доступу"',
+        'quick_access_folder_desc': 'Встановіть папку, що використовується командою «Відкрити папку швидкого доступу»',
         'root_folder': 'Коренева папка',
+        'quick_access_view_name': 'Вид швидкого доступу',
+        'quick_access_view_desc': 'Встановіть вид, що використовується командою «Відкрити вид швидкого доступу»',
+        'use_quick_access_as_new_tab_view': 'Використовувати швидкий доступ як нову вкладку',
+        'use_quick_access_as_new_tab_view_desc': 'Замінює стандартний вид «Нова вкладка» на сітковий вигляд обраної опції швидкого доступу (папки або виду). Працює, лише якщо «Місце відкриття за замовчуванням» встановлено як «Відкрити в новій вкладці»!',
+        'default_new_tab': 'За замовчуванням',
+        'use_quick_access_folder': 'Використовувати папку швидкого доступу',
+        'use_quick_access_view': 'Використовувати вид швидкого доступу',
         'open_quick_access_folder': 'Відкрити папку швидкого доступу',
-        'use_quick_access_folder_as_new_tab_view': 'Використовувати папку швидкого доступу як сторінку нової вкладки',
-        'use_quick_access_folder_as_new_tab_view_desc': 'Замінює стандартний вид «Нова вкладка» на сітковий вид папки, вказаної вище. Працює, лише якщо «Місце відкриття за замовчуванням» встановлено як «Відкрити в новій вкладці»!',
+        'open_quick_access_view': 'Відкрити вид швидкого доступу',
     }
 }

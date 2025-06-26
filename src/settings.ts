@@ -40,7 +40,8 @@ export interface GallerySettings {
     folderNoteDisplaySettings: string; // 資料夾筆記設定
     interceptAllTagClicks: boolean; // 攔截所有tag點擊事件
     quickAccessCommandPath: string; // Path used by "Open quick access folder" command
-    useQuickAccessFolderAsNewTabView: boolean; // Use quick access folder as new tab view
+    quickAccessViewType: 'bookmarks' | 'search' | 'recent-files' | 'all-files' | 'random-note' | 'tasks'; // View types used by "Open quick access view" command
+    useQuickAccessAsNewTabView: 'default' | 'folder' | 'view'; // Use quick access (folder or view) as a new tab view
 }
 
 // 預設設定
@@ -82,7 +83,8 @@ export const DEFAULT_SETTINGS: GallerySettings = {
     folderNoteDisplaySettings: 'default', // 預設不處理資料夾筆記
     interceptAllTagClicks: false, // 預設不攔截所有tag點擊事件
     quickAccessCommandPath: '', // Path used by "Open quick access folder" command
-    useQuickAccessFolderAsNewTabView: false,
+    useQuickAccessAsNewTabView: 'default',
+    quickAccessViewType: 'all-files', // Default quick access view type
 };
 
 // 設定頁面類別
@@ -615,18 +617,42 @@ export class GridExplorerSettingTab extends PluginSettingTab {
                 });
             });
 
-            // Use Quick Access Folder as a new tab view
+
+            // Quick Access View Setting
             new Setting(containerEl)
-            .setName(t('use_quick_access_folder_as_new_tab_view'))
-            .setDesc(t('use_quick_access_folder_as_new_tab_view_desc'))
-            .addToggle(toggle => {
-                toggle
-                    .setValue(this.plugin.settings.useQuickAccessFolderAsNewTabView)
-                    .onChange(async (value) => {
-                        this.plugin.settings.useQuickAccessFolderAsNewTabView = value;
+            .setName(t('quick_access_view_name'))
+            .setDesc(t('quick_access_view_desc'))
+            .addDropdown(dropdown => {
+                dropdown
+                    .addOption('all-files', t('all_files_mode'))
+                    .addOption('bookmarks', t('bookmarks_mode'))
+                    .addOption('search', t('search_results'))
+                    .addOption('recent-files', t('recent_files_mode'))
+                    .addOption('random-note', t('random_note_mode'))
+                    .addOption('tasks', t('tasks_mode'))
+                    .setValue(this.plugin.settings.quickAccessViewType)
+                    .onChange(async (value: 'bookmarks' | 'search' | 'recent-files' | 'all-files' | 'random-note' | 'tasks') => {
+                        this.plugin.settings.quickAccessViewType = value;
                         await this.plugin.saveSettings();
                     });
             });
+
+            // Use Quick Access as a new tab view
+            new Setting(containerEl)
+            .setName(t('use_quick_access_as_new_tab_view'))
+            .setDesc(t('use_quick_access_as_new_tab_view_desc'))
+            .addDropdown(dropdown => {
+                dropdown
+                    .addOption('default', t('default_new_tab'))
+                    .addOption('folder', t('use_quick_access_folder'))
+                    .addOption('view', t('use_quick_access_view'))
+                    .setValue(this.plugin.settings.useQuickAccessAsNewTabView)
+                    .onChange(async (value: 'default' | 'folder' | 'view') => {
+                        this.plugin.settings.useQuickAccessAsNewTabView = value;
+                        await this.plugin.saveSettings();
+                    });
+            });
+
 
         // 忽略資料夾設定區域
         containerEl.createEl('h3', { text: t('ignored_folders_settings') });

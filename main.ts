@@ -112,6 +112,15 @@ export default class GridExplorerPlugin extends Plugin {
             }
         });
 
+        // Open quick access view command
+        this.addCommand({
+            id: 'open-quick-access-view',
+            name: t('open_quick_access_view'),
+            callback: async () => {
+                this.activateView(this.settings.quickAccessViewType);
+            }
+        });
+
         // 新增 Ribbon 圖示
         this.addRibbonIcon('grid', t('open_grid_view'), () => {
             showFolderSelectionModal(this.app, this);
